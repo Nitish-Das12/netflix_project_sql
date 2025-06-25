@@ -16,7 +16,7 @@ This project involves a comprehensive analysis of Netflix's movies and TV shows 
 
 ## Schema
 
-```PostgreSQL
+```sql
 
 DROP TABLE IF EXISTS netflix;
 CREATE TABLE netflix 
@@ -43,7 +43,7 @@ SELECT * FROM netflix;
 
 ### 1 Count the Number of Movies vs TV Shows
 
-```PostgreSQL
+```sql
 SELECT 
     type,
     COUNT(*) AS Total_count
@@ -53,7 +53,7 @@ GROUP BY 1;
 ```
 ### 2. Find the Most Common Rating for Movies and TV Shows
 
-```PostgreSQL
+```sql
 SELECT 
      type,
 	 rating
@@ -87,7 +87,7 @@ WHERE release_year = 2020
 ```   
 ### 4. Find the Top 5 Countries with the Most Content on Netflix    
 
-```PostgreSQL
+```sql
 SELECT * 
 FROM
 (
@@ -117,7 +117,7 @@ WHERE
 ```
  ### 6. Find Content Added in the Last 5 Years
 
-```PostgreSQL
+```sql
 SELECT *
 FROM netflix
 WHERE 
@@ -126,7 +126,7 @@ WHERE
 ```
 ### 7. Find All Movies/TV Shows by Director 'Rajiv Chilaka'
 
-```PostgreSQL
+```sql
 SELECT type ,
        title,
        director
@@ -147,7 +147,7 @@ WHERE director_name = 'Rajiv Chilaka';
 
 ### 8. List All TV Shows with More Than 5 Seasons
 
-```PostgreSQL
+```sql
 SELECT type,
        title,
        SPLIT_PART(duration, ' ', 1) AS the_seasons
@@ -159,7 +159,7 @@ WHERE type = 'TV Show'
 ```      
 ### 9. Count the Number of Content Items in Each Genre
 
-```PostgreSQL
+```sql
 SELECT 
      UNNEST(STRING_TO_ARRAY(listed_in, ',')) AS Genre,
      COUNT(show_id) AS totla_content
@@ -190,7 +190,7 @@ GROUP BY 1;
 ```
 ### 11. List All Movies that are Documentaries
 
-```PostgreSQL
+```sql
 SELECT type,
        listed_in,
 	   title
@@ -202,7 +202,7 @@ type = 'Movie';
 ```
 ### 12. Find All Content Without a Director
 
-```PostgreSQL
+```sql
 SELECT * 
 FROM netflix
 WHERE director IS NULL;
@@ -210,7 +210,7 @@ WHERE director IS NULL;
 ```
 ### 13. Find How Many Movies Actor 'Salman Khan' Appeared in the Last 10 Years
 
-```PostgreSQL
+```sql
 SELECT * 
 FROM netflix
 WHERE 
@@ -234,7 +234,7 @@ LIMIT 10;
 
 ### 15. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
 
-```PostgreSQL
+```sql
 SELECT 
     category,
     COUNT(*) AS content_count
