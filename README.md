@@ -221,7 +221,7 @@ WHERE
 
  ### 14. Find the Top 10 Actors Who Have Appeared in the Highest Number of Movies Produced in India
 
-```PostgreSQL
+```sQL
 SELECT 
     UNNEST(STRING_TO_ARRAY(casts, ',')) AS actor,
     COUNT(*)
