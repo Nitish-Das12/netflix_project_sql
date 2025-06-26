@@ -169,7 +169,8 @@ GROUP BY 1;
 ```
 ### 10.Find each year and the average numbers of content release in India on netflix. 
 
-```PostgreSQL
+```SQL
+
 TOTAL CONTENT (333+10+203+95+189+142) = 927
 SELECT COUNT(*) FROM netflix WHERE country = 'India';
 
