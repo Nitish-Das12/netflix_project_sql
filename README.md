@@ -104,7 +104,7 @@ LIMIT 5;
 ```
 ### 5. Identify the Longest Movie
 
-```PostgreSQL
+```SQL
 select *
 FROM netflix
 WHERE 
